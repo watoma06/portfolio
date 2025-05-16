@@ -1,0 +1,765 @@
+/* Reset and Base Styles */
+body {
+    font-family: 'Noto Sans JP', sans-serif; /* Google Fontsを適用 */
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+.container {
+    width: 85%; /* Slightly wider for a more spacious feel */
+    max-width: 1200px; /* Max width for large screens */
+    margin: auto;
+    overflow: hidden;
+    padding: 25px;
+}
+
+/* Header */
+header {
+    background-color: #fff;
+    color: #333;
+    padding: 0.25em 0; /* Further reduced padding */
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    display: flex; /* Use flexbox for alignment */
+    align-items: center; /* Vertically align items */
+    justify-content: space-between; /* Space out logo and nav */
+    padding-left: 5%; /* Add padding to match container */
+    padding-right: 5%; /* Add padding to match container */
+}
+
+header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%; /* Ensure container takes full width within header padding */
+}
+
+header .logo {
+    font-size: 1.8em;
+    font-weight: bold;
+    color: var(--primary-color);
+    text-decoration: none;
+}
+
+header nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0; /* Removed margin-top: 0; */
+    display: flex; /* Use flex for horizontal layout */
+}
+
+header nav ul li {
+    margin-left: 25px; /* Spacing between items */
+}
+
+header nav ul li a {
+    text-decoration: none;
+    color: #555;
+    font-weight: 500;
+    padding: 5px 0;
+    position: relative;
+    transition: color 0.3s ease;
+}
+
+header nav ul li.current a {
+    color: #007bff; /* Or your preferred highlight color */
+    font-weight: bold;
+}
+
+/* Showcase Section */
+#showcase {
+    min-height: 500px; /* 高さを調整 */
+    background: linear-gradient(rgba(20, 30, 40, 0.85), rgba(20, 30, 40, 0.95)), url('https://via.placeholder.com/1500x800.png?text=Modern+Background') no-repeat center center/cover; /* 背景画像とオーバーレイ */
+    color: #fff;
+    text-align: center;
+    padding: 150px 20px; /* パディングを調整 */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#showcase h1 {
+    font-family: 'Montserrat', sans-serif; /* Montserratを適用 */
+    font-size: 3.8rem; /* さらに大きく、インパクトを出す */
+    margin-bottom: 25px;
+    font-weight: 700;
+    text-shadow: 3px 3px 6px rgba(0,0,0,0.5); /* テキストシャドウを調整 */
+}
+
+#showcase p {
+    font-size: 1.3em;
+    margin-bottom: 40px; /* CTAボタンとのスペースを確保 */
+    max-width: 700px; /* テキストの最大幅を設定 */
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* General Button Styles */
+.button {
+    display: inline-block;
+    padding: 12px 25px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+    border: none;
+    cursor: pointer;
+    font-size: 1em;
+    text-align: center;
+}
+
+.button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+}
+
+.button:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+/* Primary Button (e.g., main CTAs) */
+.button--primary {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+.button--primary:hover {
+    background-color: var(--primary-color-dark);
+}
+
+/* Secondary/CTA Button (e.g., showcase CTAs) */
+.button--cta {
+    background-color: var(--secondary-color);
+    color: white;
+}
+
+.button--cta:hover {
+    background-color: var(--secondary-color-dark);
+}
+
+/* Details/Link-like Button (e.g., View Details) */
+.button--details {
+    background-color: transparent;
+    color: var(--primary-color);
+    padding: 8px 15px; /* Slightly smaller padding */
+    border: 1px solid var(--primary-color);
+}
+
+.button--details:hover {
+    background-color: var(--primary-color-light-transparent);
+    color: var(--primary-color-dark);
+    border-color: var(--primary-color-dark);
+}
+
+/* Specific button instances - remove old classes if they only defined what's now in .button or modifiers */
+
+
+/* Showcase CTAボタン */
+.button_cta {
+    display: inline-block;
+    background: #007bff; /* プライマリカラーに変更 */
+    color: #fff;
+    padding: 15px 30px; /* パディングを調整 */
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 1.1em;
+    font-weight: bold;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    margin: 10px;
+    border: 2px solid transparent; /* ホバー時の枠線用 */
+}
+
+.button_cta:hover {
+    background: #0056b3; /* 少し暗い色に */
+    transform: translateY(-3px); /* ホバー時に少し浮き上がる効果 */
+}
+
+.button_cta_secondary {
+    background: transparent;
+    border: 2px solid #fff; /* 白い枠線 */
+    color: #fff;
+}
+
+.button_cta_secondary:hover {
+    background: #fff;
+    color: #333;
+    transform: translateY(-3px);
+}
+
+/* General Section Styling */
+.section {
+    padding: 50px 20px; /* Increased padding */
+    margin-bottom: 30px;
+    background: #fff;
+    border-radius: 8px; /* More rounded corners */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08); /* Softer, more modern shadow */
+}
+
+.section h2 {
+    color: #212529; /* Darker heading color */
+    text-align: center;
+    margin-bottom: 40px; /* Increased margin */
+    font-size: 2.2rem; /* Larger section titles */
+    font-weight: 600;
+    position: relative;
+    padding-bottom: 15px;
+}
+
+.section h2::after { /* Underline accent for section titles */
+    content: '';
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 0;
+    width: 70px;
+    height: 4px;
+    background-color: #007bff;
+    border-radius: 2px;
+}
+
+/* About Section Specifics */
+.about-content {
+    display: flex;
+    flex-wrap: wrap; /* Allow wrapping on smaller screens */
+    gap: 30px;
+}
+
+.about-text {
+    flex: 2; /* Takes up more space */
+    min-width: 300px; /* Minimum width before wrapping */
+}
+
+.about-visuals {
+    flex: 1;
+    min-width: 250px; /* Minimum width before wrapping */
+    text-align: center; /* Center profile picture and skills */
+}
+
+.profile-picture {
+    width: 200px; /* Adjust as needed */
+    height: 200px;
+    border-radius: 50%; /* Circular picture */
+    object-fit: cover; /* Ensure image covers the area */
+    margin-bottom: 20px;
+    border: 5px solid #007bff;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.skills {
+    margin-top: 20px;
+}
+
+.skill-item {
+    margin-bottom: 15px;
+    text-align: left;
+}
+
+.skill-name {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: #333;
+}
+
+.skill-bar {
+    background-color: #e9ecef;
+    border-radius: 5px;
+    height: 20px;
+    overflow: hidden;
+}
+
+.skill-level {
+    background-color: #007bff;
+    height: 100%;
+    border-radius: 5px 0 0 5px; /* Keep left radius */
+    text-align: right;
+    padding-right: 5px;
+    color: white;
+    font-size: 0.8em;
+    line-height: 20px;
+}
+
+#about p, #about ul {
+    font-size: 1.1rem;
+    color: #495057; /* Slightly lighter text for content */
+}
+
+#about h3 {
+    font-size: 1.5rem;
+    color: #007bff;
+    margin-top: 30px;
+    margin-bottom: 15px;
+    border-left: 4px solid #007bff;
+    padding-left: 10px;
+}
+
+#about ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+#about ul li {
+    margin-bottom: 10px;
+    padding-left: 20px;
+    position: relative;
+}
+
+#about ul li::before {
+    content: '✓'; /* Checkmark or other icon */
+    color: #007bff;
+    position: absolute;
+    left: 0;
+    font-weight: bold;
+}
+
+
+/* Works Section */
+.work-item {
+    margin-bottom: 40px;
+    padding: 25px;
+    border: 1px solid #e9ecef; /* Lighter border */
+    border-radius: 8px;
+    background-color: #fdfdfd; /* Slightly off-white background for items */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.work-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+}
+
+.work-item h2 { /* Project title within work item */
+    font-size: 1.8rem;
+    color: #0056b3; /* Darker blue for project titles */
+    margin-bottom: 15px;
+    text-align: left; /* Align project titles to the left */
+}
+.work-item h2::after { /* Remove general section title underline for work item titles */
+    display: none;
+}
+
+
+.work-item h3 {
+    font-size: 1.3rem;
+    color: #343a40;
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+
+.work-item p {
+    font-size: 1rem;
+    color: #495057;
+    margin-bottom: 15px;
+}
+
+.work-images-container {
+    display: flex;
+    gap: 20px; /* Space between images */
+    margin-bottom: 20px;
+    align-items: flex-start; /* Align items to the top */
+}
+
+.work-item img.work-image {
+    max-width: 65%; /* Adjust as needed */
+    height: auto;
+    border-radius: 6px;
+    background-color: #e9ecef;
+    border: 1px solid #dee2e6;
+    display: block; /* Remove extra space below image */
+}
+
+.work-item img.logo-image {
+    max-width: 30%; /* Adjust as needed */
+    height: auto;
+    border-radius: 6px;
+    background-color: #e9ecef;
+    border: 1px solid #dee2e6;
+    display: block; /* Remove extra space below image */
+    align-self: center; /* Center logo vertically if container is taller */
+}
+
+.tech-tags {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.tag {
+    display: inline-block;
+    background-color: #e9ecef;
+    color: #007bff;
+    padding: 5px 10px;
+    border-radius: 15px; /* Pill shape */
+    font-size: 0.9em;
+    margin-right: 8px;
+    margin-bottom: 8px;
+}
+
+/* Modal Styles */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 2000; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgba(0,0,0,0.6); /* Black w/ opacity */
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: 5% auto; /* 5% from the top and centered */
+    padding: 30px;
+    border: 1px solid #888;
+    width: 80%; /* Could be more or less, depending on screen size */
+    max-width: 900px;
+    border-radius: 10px;
+    position: relative;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+}
+
+.modal-body {
+    max-height: 70vh; /* Limit height and enable scroll within modal body */
+    overflow-y: auto;
+    padding-right: 15px; /* For scrollbar */
+}
+
+.modal-images {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 20px;
+    align-items: flex-start;
+}
+
+.modal-images img {
+    max-width: 48%;
+    height: auto;
+    border-radius: 6px;
+    border: 1px solid #ddd;
+}
+
+.close-button {
+    color: #aaa;
+    font-size: 28px;
+    font-weight: bold;
+    background: none;
+    border: none;
+    cursor: pointer;
+    position: absolute; /* Position relative to modal-content */
+    top: 10px;
+    right: 20px;
+}
+
+/* Form Feedback Styles */
+#form-feedback {
+    margin-top: 15px;
+    padding: 10px;
+    border-radius: 5px;
+    text-align: center;
+}
+
+#form-feedback.success {
+    background-color: #d4edda;
+    color: #155724;
+    border: 1px solid #c3e6cb;
+}
+
+#form-feedback.error {
+    background-color: #f8d7da;
+    color: #721c24;
+    border: 1px solid #f5c6cb;
+}
+
+
+/* Button Base Styles */
+.btn {
+    display: inline-block;
+    padding: 12px 25px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    cursor: pointer;
+    border: none;
+    font-size: 1rem; /* Base font size for buttons */
+    text-align: center;
+}
+
+/* Primary Button Style (e.g., CTAs) */
+.btn-primary {
+    background-color: #007bff;
+    color: #ffffff;
+}
+
+.btn-primary:hover {
+    background-color: #0056b3;
+    transform: translateY(-2px);
+}
+
+/* Secondary Button Style (e.g., View Details, Form Submit) */
+.btn-secondary {
+    background-color: #6c757d;
+    color: #ffffff;
+}
+
+.btn-secondary:hover {
+    background-color: #545b62;
+    transform: translateY(-2px);
+}
+
+/* Applying common styles to existing button classes */
+
+.button_details { /* Works "View Details" */
+    /* Specific styles for .button_details can remain if needed */
+    margin-top: 15px; /* Keep specific margin if necessary */
+}
+
+form button { /* Contact Form Submit */
+    /* Specific styles for form button can remain if needed */
+    width: 100%; /* Keep specific width if necessary */
+}
+
+/* Contact Section */
+#contact {
+    background-color: #fff; /* White background for the contact section */
+    padding: 60px 20px;
+}
+
+#contact h2 {
+    color: #333;
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+#contact p {
+    text-align: center;
+    margin-bottom: 30px;
+    color: #555;
+    font-size: 1.1em;
+}
+
+#contact-form {
+    max-width: 700px;
+    margin: 0 auto;
+    background: #f9f9f9; /* Light grey background for the form */
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.form-group {
+    margin-bottom: 25px;
+    position: relative; /* For icon positioning */
+}
+
+.form-group label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 8px;
+    color: #333;
+    font-size: 0.95em;
+}
+
+.form-group input[type="text"],
+.form-group input[type="email"],
+.form-group textarea {
+    width: calc(100% - 40px); /* Adjust width to accommodate icon */
+    padding: 15px 20px 15px 45px; /* Increased padding, left padding for icon */
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 1em;
+    color: #333;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    background-repeat: no-repeat;
+    background-position: 15px center; /* Icon position */
+    background-size: 20px 20px; /* Icon size */
+}
+
+/* Adding icons to input fields */
+.form-group input[type="text"] {
+    background-image: url('https://api.iconify.design/ph:user-bold.svg?color=%236c757d');
+}
+.form-group input[type="email"] {
+    background-image: url('https://api.iconify.design/ph:envelope-simple-bold.svg?color=%236c757d');
+}
+.form-group textarea {
+    background-image: url('https://api.iconify.design/ph:chat-dots-bold.svg?color=%236c757d');
+    padding-left: 45px; /* Ensure textarea also has padding for icon */
+    min-height: 120px; /* Minimum height for textarea */
+}
+
+
+.form-group input[type="text"]:focus,
+.form-group input[type="email"]:focus,
+.form-group textarea:focus {
+    border-color: #007bff;
+    box-shadow: 0 0 8px rgba(0, 123, 255, 0.25);
+    outline: none;
+}
+
+#contact-form button {
+    /* .btn and .btn-primary styles are already applied via HTML */
+    width: 100%;
+    padding: 15px; /* Make button a bit larger */
+    font-size: 1.1em;
+}
+
+/* Commenting out .social-links as it's being removed from HTML */
+/*
+.social-links {
+    text-align: center;
+    margin-top: 30px;
+}
+
+.social-links a {
+    color: #333; 
+    margin: 0 12px;
+    font-size: 1.8em; 
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.social-links a:hover {
+    color: #007bff; 
+    transform: translateY(-3px);
+}
+*/
+
+/* Footer */
+footer {
+    background-color: #2c3e50; /* Darker, more modern footer background */
+    color: #ecf0f1; /* Light text color for contrast */
+    padding: 50px 0;
+    text-align: center;
+}
+
+.footer-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 25px; /* Space between footer elements */
+}
+
+.footer-nav {
+    display: flex;
+    gap: 20px; /* Space between nav links */
+    margin-bottom: 15px;
+}
+
+.footer-nav a {
+    color: #ecf0f1;
+    text-decoration: none;
+    font-size: 1em;
+    transition: color 0.3s ease;
+}
+
+.footer-nav a:hover {
+    color: #3498db; /* Brighter color on hover */
+}
+
+.social-links-footer {
+    display: flex;
+    gap: 20px; /* Space between social icons */
+}
+
+.social-links-footer a {
+    color: #ecf0f1;
+    font-size: 1.5em; /* Larger social icons */
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.social-links-footer a:hover {
+    color: #3498db; /* Brighter color on hover */
+    transform: translateY(-3px); /* Slight lift effect */
+}
+
+footer p {
+    margin-top: 20px;
+    font-size: 0.9em;
+    color: #bdc3c7; /* Slightly muted copyright text */
+}
+
+/* Responsive adjustments */
+@media(max-width: 768px){
+    header .container {
+        flex-direction: column; /* Stack header items on mobile */
+    }
+
+    header #branding {
+        margin-bottom: 10px;
+    }
+
+    header nav ul {
+        text-align: center;
+    }
+
+    header nav li {
+        display: block; /* Stack nav items */
+        padding: 8px 0; /* Adjust padding for block display */
+    }
+
+    #showcase {
+        padding-top: 80px; /* Adjust padding for smaller screens */
+        min-height: 350px;
+    }
+
+    #showcase h1 {
+        font-size: 2.5rem; /* Adjust font size for smaller screens */
+    }
+
+    #showcase p {
+        font-size: 1.1rem;
+    }
+
+    .container {
+        width: 95%; /* More width on smaller screens */
+    }
+
+    .section h2 {
+        font-size: 1.8rem;
+    }
+
+    .work-item h2 {
+        font-size: 1.5rem;
+    }
+
+    .work-images-container {
+        flex-direction: column; /* Stack images on smaller screens */
+        align-items: center;
+    }
+
+    .work-item img.work-image,
+    .work-item img.logo-image {
+        max-width: 90%; /* Allow images to take more width */
+        margin-bottom: 15px;
+    }
+
+    .about-content {
+        flex-direction: column; /* Stack text and visuals */
+    }
+
+    .about-visuals {
+        margin-top: 30px;
+    }
+
+    .footer-content {
+        gap: 20px;
+    }
+
+    .footer-nav {
+        display: flex;
+        flex-wrap: wrap; /* Allow nav items to wrap */
+        justify-content: center;
+    }
+
+    .footer-nav a {
+        margin-bottom: 10px;
+    }
+}
